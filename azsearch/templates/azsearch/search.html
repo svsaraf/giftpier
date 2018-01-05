@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Search for an Amazon product</title>
+</head>
+<body>
+    <p>
+        <form action="/search/" method="post">
+            {% csrf_token %}
+            <input type='text' name="searchbox" placeholder="{% if search %}{{ search }}{% else %}Search here{% endif %}"><br>
+            <input type="radio" name="api" value="unsaved" checked> Unsaved
+            <input type="radio" name="api" value="saved"> Saved<br>
+            <input type="submit">
+        </form>
+
+    {% if search %}
+        <p>You searched for <b>{{ search }}</b>.</p>
+    {% endif %}
+
+    {% for product in products %}
+        <br>{{forloop.counter}}) {{product.title}}</br>
+    {% empty %}
+        <p>Nothing to show here </p>
+    {% endfor %}
+
+    <a href="/">Home</a>
+    
+    
+</body>
+</html>

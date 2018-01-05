@@ -1,0 +1,11 @@
+<html>
+<head>
+    <title>{% if titlecontext %}{{ titlecontext }}{% else %}Generic Page{% endif %}</title>
+</head>
+<body>
+    {% if bodycontext %}
+    {{ bodycontext }}
+    {% endif %}
+    <a href="/search">Search</a>
+</body>
+</html>

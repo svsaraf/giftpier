@@ -1,2 +1,4 @@
+secrets.py
+*.sqlite3
 *.pyc
 venv
