@@ -6,7 +6,7 @@ def search(request):
     if request.method == 'POST':
         searchvalue = request.POST.get('searchbox', '')
         amazon = AmazonAPI(ACCESS_KEY, SECRET_KEY, ASSOC_ID)
-        products = amazon.search(Keywords=searchvalue, SearchIndex='All')
+        products = amazon.search_n(20, Keywords=searchvalue, SearchIndex='All')
         context = {
             'search': searchvalue,
             'products': products

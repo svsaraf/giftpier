@@ -17,7 +17,7 @@
     {% endif %}
 
     {% for product in products %}
-        <br>{{forloop.counter}}) {{product.title}}</br>
+        <br><img src="{{product.large_image_url}}">{{forloop.counter}}) {{product.title}}</br>
     {% empty %}
         <p>Nothing to show here </p>
     {% endfor %}
