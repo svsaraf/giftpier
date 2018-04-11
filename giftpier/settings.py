@@ -126,3 +126,7 @@ MEDIA_ROOT = u'/home/svsaraf/giftpier/media'
 MEDIA_URL = '/media/'
 STATIC_ROOT = u'/home/svsaraf/giftpier/static'
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = ( 
+    "/static/azsearch/css",
+)

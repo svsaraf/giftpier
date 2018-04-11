@@ -1,5 +1,7 @@
 <html>
 <head>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static "css/base.css" %}" />
     <title>{% if titlecontext %}{{ titlecontext }}{% else %}Generic Page{% endif %}</title>
 </head>
 <body>

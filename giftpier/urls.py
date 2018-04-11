@@ -16,9 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from azsearch import views as azsearch_views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^search/', azsearch_views.search, name='search'),
     url(r'^$', azsearch_views.home, name='home'),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
