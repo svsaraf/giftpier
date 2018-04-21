@@ -7,8 +7,8 @@
         <form action="/search/" method="post">
             {% csrf_token %}
             <input type='text' name="searchbox" placeholder="{% if search %}{{ search }}{% else %}Search here{% endif %}"><br>
-            <input type="radio" name="api" value="unsaved" checked> Unsaved
-            <input type="radio" name="api" value="saved"> Saved<br>
+            <input type="radio" name="saved_or_not" value="unsaved" checked> Unsaved
+            <input type="radio" name="saved_or_not" value="saved"> Saved<br>
             <input type="submit">
         </form>
 
