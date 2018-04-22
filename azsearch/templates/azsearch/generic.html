@@ -1,13 +1,22 @@
 <html>
 <head>
     {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static "css/bootstrap_journal.css" %}" />
     <link rel="stylesheet" href="{% static "css/base.css" %}" />
+
     <title>{% if titlecontext %}{{ titlecontext }}{% else %}Generic Page{% endif %}</title>
 </head>
 <body>
-    {% if bodycontext %}
-    {{ bodycontext }}
-    {% endif %}
-    <a href="/search">Search</a>
+    <div class="header bg-primary">
+        <img src="{% static "img/gp_logo_white_pure_transparent.png" %}" alt="logo" style="width:175px;height:55px;">
+    </div>
+    <div class="aside table-secondary"></div>
+    <div class="main">
+        {% if bodycontext %}
+        {{ bodycontext }}
+        {% endif %}
+        <a href="/search">Search</a>
+    </div>
+    <div class="footer table-primary"></div>
 </body>
 </html>
