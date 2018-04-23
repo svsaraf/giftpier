@@ -60,10 +60,19 @@
         </div>
     </div>
     <div class="main">
-        {% if bodycontext %}
-        {{ bodycontext }}
-        {% endif %}
-        <a href="/search">Search</a>
+        <div class="mainheader">
+          {% if bodycontext %}
+          {{ bodycontext }}
+          {% endif %}
+          <a href="/search">Search</a>
+        </div>
+        <div class="giftcollage">
+            {% for i in "xxxxxxxxxxxxxxxxx" %}
+            <div class="gift table-success">
+              Gift # {{ forloop.counter0 }}
+            </div>
+            {% endfor %}
+        </div>
     </div>
     <div class="footer table-primary"></div>
 

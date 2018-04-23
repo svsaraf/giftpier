@@ -32,3 +32,16 @@ body {
     grid-area: content;
     background-color: white;
 }
+
+.giftcollage {
+    display: grid;
+    grid-template-areas: "a a a a a";
+    grid-gap: 10px;
+    grid-auto-rows: 200px;
+    width: 1000px;
+    padding-left: 20px;
+}
+
+.gift {
+    background-color: bg-primary;
+}
