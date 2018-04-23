@@ -8,9 +8,54 @@
 </head>
 <body>
     <div class="header bg-primary">
-        <img src="{% static "img/gp_logo_white_pure_transparent.png" %}" alt="logo" style="width:175px;height:55px;">
+        <img src="{% static "img/gp_logo_white_pure_transparent.png" %}" alt="logo" style="width:159px;height:50px;">
     </div>
-    <div class="aside table-secondary"></div>
+
+    <div class="aside table-secondary">
+        <div class="filters">
+            <br>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-primary active">
+                <input name="options" id="option1" autocomplete="off" checked="" type="radio"> ALL
+              </label>
+              <label class="btn btn-primary">
+                <input name="options" id="option2" autocomplete="off" type="radio"> Male
+              </label>
+              <label class="btn btn-primary">
+                <input name="options" id="option3" autocomplete="off" type="radio"> Female
+              </label>
+            </div>
+            <br>
+            <p>
+            <div class="btn-group-vertical" data-toggle="buttons" style="width: 100%">
+              <button type="button" class="btn btn-primary" aria-pressed="false">0 - 4 years</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false">5 - 7 years</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false">8 - 10 years</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false">11 - 12 years</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false">12 - 14 years</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false">15 - 18 years</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false">18 - 22 years</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false">22 - 30 years</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false">30 - 40 years</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false">40+ years</button>
+            </div>
+            <br>
+            <p>
+            <div class="btn-group-vertical" data-toggle="buttons" style="width: 100%">
+              <button type="button" class="btn btn-primary" aria-pressed="false">Birthday</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false">Mother's Day</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false">Christmas / Hanukkah</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false">Wedding</button>
+            </div>
+            <br>
+            <p>
+            <div class="form-group">
+              <input class="form-control form-control-sm" placeholder="Minimum price (in dollars)" id="inputSmall" type="text">
+              <input class="form-control form-control-sm" placeholder="Maximum price (in dollars)" id="inputSmall2" type="text">
+            </div>
+
+        </div>
+    </div>
     <div class="main">
         {% if bodycontext %}
         {{ bodycontext }}
@@ -18,5 +63,9 @@
         <a href="/search">Search</a>
     </div>
     <div class="footer table-primary"></div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 </body>
 </html>
