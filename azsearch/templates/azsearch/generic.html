@@ -60,18 +60,44 @@
         </div>
     </div>
     <div class="main">
-        <div class="mainheader">
-          {% if bodycontext %}
-          {{ bodycontext }}
-          {% endif %}
-          <a href="/search">Search</a>
-        </div>
+
         <div class="giftcollage">
-            {% for i in "xxxxxxxxxxxxxxxxx" %}
+            {% for i in "xxxxxxxxxxxxxxxxxxxx" %}
             <div class="gift table-success">
               Gift # {{ forloop.counter0 }}
             </div>
             {% endfor %}
+        </div>
+        <div class="pagination">
+            <ul class="pagination">
+              <li class="page-item disabled">
+                <a class="page-link" href="#">&laquo;</a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">2</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">3</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">4</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">5</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">&raquo;</a>
+              </li>
+            </ul>
+        </div>
+        <div class="apilink">
+          {% if bodycontext %}
+          {{ bodycontext }}
+          {% endif %}
+          <a href="/search">Open AZ API search</a>
         </div>
     </div>
     <div class="footer table-primary"></div>

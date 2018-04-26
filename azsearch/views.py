@@ -28,6 +28,6 @@ def search(request):
 def home(request):
     context = {
         'titlecontext': 'Giftpier Home',
-        'bodycontext': 'Splash page goes here'
+        'bodycontext': ''
     }
     return render(request, 'azsearch/generic.html', context)
