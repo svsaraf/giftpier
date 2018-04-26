@@ -62,9 +62,10 @@
     <div class="main">
 
         <div class="giftcollage">
-            {% for i in "xxxxxxxxxxxxxxxxxxxx" %}
+            {% for i in gifts %}
             <div class="gift table-success">
-              Gift # {{ forloop.counter0 }}
+               <img src="{{ i.image_link }}" alt="" width="100%" style="padding-left: 5%; padding-right: 5%"> 
+               {{ i.name }}
             </div>
             {% endfor %}
         </div>

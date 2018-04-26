@@ -26,8 +26,10 @@ def search(request):
 
 # Default home page given that this was the first app built
 def home(request):
+    gifts = Gift.objects.raw('SELECT * from azsearch_gift limit 20')
     context = {
         'titlecontext': 'Giftpier Home',
-        'bodycontext': ''
+        'bodycontext': '',
+        'gifts': gifts
     }
     return render(request, 'azsearch/generic.html', context)

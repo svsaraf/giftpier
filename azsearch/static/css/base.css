@@ -45,6 +45,7 @@ body {
 
 .gift {
     background-color: bg-primary;
+    width: 180px;
 }
 
 .pagination {
