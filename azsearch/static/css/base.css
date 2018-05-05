@@ -44,8 +44,11 @@ body {
 }
 
 .gift {
-    background-color: bg-primary;
+    background-color: white;
     width: 180px;
+    border-style: solid;
+    border-width: 4px 4px 4px 4px;
+    border-color: #E5E5E5;
 }
 
 .pagination {
@@ -57,4 +60,8 @@ body {
 .apilink {
     float: right;
     padding-right: 15px;
+}
+
+.gift_description {
+    font-size: 12px;
 }

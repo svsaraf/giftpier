@@ -64,8 +64,8 @@
         <div class="giftcollage">
             {% for i in gifts %}
             <div class="gift table-success">
-               <img src="{{ i.image_link }}" alt="" width="100%" style="padding-left: 5%; padding-right: 5%"> 
-               {{ i.name }}
+               <img src="{{ i.image_link }}" alt="" width="100%" height="80%" style="padding-left: 5%; padding-right: 5%"> 
+               <div class="gift_description">{{ i.name|truncatechars:50 }}</div>
             </div>
             {% endfor %}
         </div>
