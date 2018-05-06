@@ -65,13 +65,21 @@
             {% for i in gifts %}
             <div class="gift">
               <div class="hover" style="display: none;">
-                <button type="button" class="btn btn-danger">+</button>
+                <button type="button" class="btn btn-primary">+</button>
               </div>
                <img src="{{ i.image_link }}" alt="" width="100%" height="80%" style="padding-left: 5%; padding-right: 5%"> 
                <div class="gift_description">{{ i.name|truncatechars:50 }}</div>
 
             </div>
             {% endfor %}
+        </div>
+        <div class="shoppingcart" style="display: none;">
+            <ul class="itemlist">
+              <!--<li class="selectedgift"><div class="cartdescription">Disney Pixar Coco Guitar</div><div class="cartquantity">1</div></li>
+              <li class="selectedgift"><div class="cartdescription">Yamaha F200 Acoustic Guitar</div><div class="cartquantity">1</div></li>-->
+            </ul>
+            <div class="checkoutbutton" style="left: 40%"><button type="button" class="btn btn-success">Checkout <span class="glyphicon glyphicon-search"></span></button></div>
+
         </div>
         <div class="pagination">
             <ul class="pagination">
@@ -117,6 +125,13 @@
               $(this).children('.hover').show();
           },function(){
               $(this).children('.hover').hide();
+          });
+
+          $( ".hover" ).click(function() {
+              var text = $(this).parent().children('.gift_description').text()
+              var toappend = '<li class="selectedgift"><div class="cartdescription">' + text + '</div><div class="cartquantity">1</div></li>';
+              $(".itemlist").append(toappend);
+              $('.shoppingcart').show();
           });
       }); 
     </script>

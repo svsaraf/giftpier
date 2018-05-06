@@ -68,7 +68,7 @@ body {
 }
 
 .hover{
-    background-color: rgba(50,50,50,0.3);
+    background-color: rgba(50,50,50,0.25);
     height: 100%;
     width: 100%;
     z-index: 1;
@@ -81,4 +81,44 @@ body {
     opacity: 0.9;
     bottom: 0;
     margin-top: 90%;
+}
+
+.shoppingcart {
+    position: fixed;
+    bottom: 0;
+    right: 1.1vw;
+    width: 350px;
+    border: 3px solid rgba(171,98,90,0.4);
+    background-color: white;
+    z-index: 1000;
+    font-size: 13px;
+}
+
+
+
+li.selectedgift {
+  list-style-type: none;
+}
+
+.cartdescription {
+    display: inline-block;
+}
+
+.cartquantity {
+    display: inline-block;
+    float: right;
+    padding-right: 10px;
+}
+
+ul.itemlist {
+    padding-left: 10px;
+}
+
+.shoppingcart .btn {
+    font-family: "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+}
+
+.checkoutbutton {
+    margin-left: 120px;
+    margin-bottom: 10px;
 }
