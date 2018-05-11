@@ -2,6 +2,8 @@ from django.shortcuts import render
 from secrets import ACCESS_KEY, SECRET_KEY, ASSOC_ID
 from amazon.api import AmazonAPI
 from azsearch.models import Gift
+from django.http import HttpResponse
+import json
 # Create your views here.
 def search(request):
     if request.method == 'POST':
@@ -22,6 +24,20 @@ def search(request):
     else:
         context = {}
     return render(request, 'azsearch/search.html', context)
+
+def modifycart(request):
+    success = False
+    to_return = {'msg': 'No POST data sent.' }
+
+    if request.method == 'POST':
+        to_return['msg'] = 'Message successfully posted!'
+
+    serialized = json.dumps(to_return)
+    
+    if success == True:
+        return HttpResponse(serialized, mimetype="application/json")
+    else:
+        return HttpResponseServerError(serialized, mimetype="application/json")
 
 
 # Default home page given that this was the first app built

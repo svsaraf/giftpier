@@ -132,6 +132,14 @@
               var toappend = '<li class="selectedgift"><div class="cartdescription">' + text + '</div><div class="cartquantity">1</div></li>';
               $(".itemlist").append(toappend);
               $('.shoppingcart').show();
+              $.ajax({
+                  type: 'POST',
+                  url: '/modifycart',
+                  data: text,
+                  success: function (data) {
+                    console.log(data);
+                  }
+              });
           });
       }); 
     </script>
