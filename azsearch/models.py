@@ -20,4 +20,45 @@ class Gift(models.Model):
         return self.name
 
 
+class Tag(models.Model):
+    CATEGORY_CHOICES = (
+        ('gender', 'gender'),
+        ('age', 'age'),
+        ('festival', 'festival'),
+    )
+
+    GENDER_CHOICES = (
+        ('m', 'male'),
+        ('f', 'female'),
+    )
+
+    AGE_CHOICES = (
+        ('0', '0-5'),
+        ('5', '5-8'),
+        ('8', '8-11'),
+        ('11', '11-12'),
+        ('12', '12-15'),
+        ('15', '15-18'),
+        ('18', '18-22'),
+        ('22', '22-30'),
+        ('30', '30-40'),
+        ('40', '40+'),
+    )
+
+    FESTIVAL_CHOICES = (
+        ('birthday', 'birthday'),
+        ('christmas', 'christmas'),
+        ('mother', 'christmas'),
+        ('wedding', 'christmas'),
+    )
+
+    TAG_CHOICES = GENDER_CHOICES + AGE_CHOICES + FESTIVAL_CHOICES
+
+    gift = models.ForeignKey(Gift)
+    category = models.CharField(max_length=30, choices=CATEGORY_CHOICES)
+    tag = models.CharField(max_length=30, choices=TAG_CHOICES)
+
+    def __unicode__(self):
+        return self.gift + ' : ' + self.tag
+
 # Create your models here.
