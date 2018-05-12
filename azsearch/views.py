@@ -35,9 +35,9 @@ def modifycart(request):
     serialized = json.dumps(to_return)
     
     if success == True:
-        return HttpResponse(serialized, mimetype="application/json")
+        return HttpResponse(serialized, content_type="application/json")
     else:
-        return HttpResponseServerError(serialized, mimetype="application/json")
+        return HttpResponse(serialized, content_type="application/json")
 
 
 # Default home page given that this was the first app built
