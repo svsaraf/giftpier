@@ -4,6 +4,8 @@ from django.db import models
 
 class Cart(models.Model):
     created = models.DateTimeField(auto_now_add=True)
+    gifts = models.ManyToManyField(Gift)
+
 
     def __unicode__(self):
         return str(created)
@@ -14,7 +16,6 @@ class Gift(models.Model):
     name = models.CharField(max_length=128)
     price_desc = models.CharField(max_length=128)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    carts = models.ManyToManyField(Cart)
 
     def __unicode__(self):
         return self.name
