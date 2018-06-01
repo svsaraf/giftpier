@@ -2,13 +2,6 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-class Cart(models.Model):
-    created = models.DateTimeField(auto_now_add=True)
-    gifts = models.ManyToManyField(Gift)
-
-
-    def __unicode__(self):
-        return str(created)
 
 class Gift(models.Model):
     link = models.URLField(max_length=128)
@@ -20,6 +13,14 @@ class Gift(models.Model):
     def __unicode__(self):
         return self.name
 
+
+class Cart(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
+    gifts = models.ManyToManyField(Gift)
+
+
+    def __unicode__(self):
+        return str(created)
 
 class Tag(models.Model):
     CATEGORY_CHOICES = (
