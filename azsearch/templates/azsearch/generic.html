@@ -63,7 +63,7 @@
 
         <div class="giftcollage">
             {% for i in gifts %}
-            <div class="gift">
+            <div class="gift" id="{{ i.asin }}">
               <div class="hover" style="display: none;">
                 <button type="button" class="btn btn-primary">+</button>
               </div>
@@ -142,6 +142,7 @@
 
       $(document).ready(function(){
           var csrftoken = getCookie('csrftoken');
+          var shoppingcart = [];
 
           $.ajaxSetup({
               beforeSend: function(xhr, settings) {
@@ -161,15 +162,31 @@
               var text = $(this).parent().children('.gift_description').text()
               var data = {};
               data['text'] = text;
+              shoppingcart.push($(this).parent().attr('id'));
               var toappend = '<li class="selectedgift"><div class="cartdescription">' + text + '</div><div class="cartquantity">1</div></li>';
               $(".itemlist").append(toappend);
               $('.shoppingcart').show();
               $.ajax({
                   type: 'POST',
                   url: '/modifycart/',
-                  data: text,
+                  data: shoppingcart,
                   success: function (data) {
                     console.log(data);
+                  }
+              });
+          });
+
+          $(".checkoutbutton").click(function() {
+              console.log(shoppingcart);
+              $.ajax({
+                  type: 'POST',
+                  url: '/checkout/',
+                  data: {'shoppingcart': JSON.stringify(shoppingcart)},
+                  success: function (data) {
+                    $('.checkoutbutton').css({'left': '20%'});
+                    $('.checkoutbutton').append('<a href="' + data['msg'] + '" target="_blank"' + '>Cart!</a>');
+                    console.log(data)
+                    //var win = window.open(data);
                   }
               });
           });
