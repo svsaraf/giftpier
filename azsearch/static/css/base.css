@@ -2,7 +2,7 @@ body {
     display: grid;
     min-height: 100%;
     grid-template-rows: 50px 1fr 40px;
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: 190px 1fr;
     grid-template-areas: "header    header"
                          "sidebar   content"
                          "footer    footer";
