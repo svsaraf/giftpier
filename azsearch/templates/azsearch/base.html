@@ -1,0 +1,192 @@
+<html>
+<head>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static "css/bootstrap_journal.css" %}" />
+    <link rel="stylesheet" href="{% static "css/base.css" %}" />
+
+    <title>{% block title %}{% if titlecontext %}{{ titlecontext }}{% else %}Generic Page{% endif %}{% endblock %}</title>
+</head>
+<body>
+    <div class="header bg-primary">
+        <img src="{% static "img/gp_logo_white_pure_transparent.png" %}" alt="logo" style="width:159px;height:50px;">
+        <div class="byline" style="float: right; color: white; padding-top: 15px; padding-right: 30px;">
+            <p>no registration. no BS. just gifts.</p>
+        </div>
+    </div>
+
+    <div class="aside table-secondary">
+        <div class="filters">
+            <br>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons" style="width: 90%; padding-left: 8%;">
+              <label class="btn btn-primary" style="margin-right: 2px; border-radius: 4px;">
+                <input name="options" id="option2" autocomplete="off" type="radio"> Male
+              </label>
+              <label class="btn btn-primary" style="margin-right: 2px; border-radius: 4px;">
+                <input name="options" id="option3" autocomplete="off" type="radio"> Female
+              </label>
+            </div>
+            <br>
+            <p>
+            <div class="btn-group-vertical" data-toggle="buttons" style="width: 90%; padding-left: 10%;">
+              <button type="button" class="btn btn-primary" aria-pressed="false" style="margin-bottom: 2px; border-radius: 4px;">0 - 4 years</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false" style="margin-bottom: 2px; border-radius: 4px;">5 - 7 years</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false" style="margin-bottom: 2px; border-radius: 4px;">8 - 10 years</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false" style="margin-bottom: 2px; border-radius: 4px;">11 - 12 years</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false" style="margin-bottom: 2px; border-radius: 4px;">12 - 14 years</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false" style="margin-bottom: 2px; border-radius: 4px;">15 - 18 years</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false" style="margin-bottom: 2px; border-radius: 4px;">18 - 22 years</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false" style="margin-bottom: 2px; border-radius: 4px;">22 - 30 years</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false" style="margin-bottom: 2px; border-radius: 4px;">30 - 40 years</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false" style="margin-bottom: 2px; border-radius: 4px;">40+ years</button>
+            </div>
+            <br>
+            <p>
+            <div class="btn-group-vertical" data-toggle="buttons" style="width: 90%; padding-left: 10%;">
+              <button type="button" class="btn btn-primary" aria-pressed="false" style="margin-bottom: 2px; border-radius: 4px;">Birthday</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false" style="margin-bottom: 2px; border-radius: 4px;">Mother's Day</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false" style="margin-bottom: 2px; border-radius: 4px;">Christmas</button>
+              <button type="button" class="btn btn-primary" aria-pressed="false" style="margin-bottom: 2px; border-radius: 4px;">Wedding</button>
+            </div>
+            <br>
+            <p>
+
+        </div>
+    </div>
+    <div class="main">
+
+        <div class="giftcollage">
+            {% block collagecontent %}
+                {% for i in gifts %}
+                <div class="gift" id="{{ i.asin }}">
+                  <div class="hover" style="display: none;">
+                    <button type="button" class="btn btn-primary">+</button>
+                  </div>
+                   <img src="{{ i.image_link }}" alt="" width="100%" height="80%" style="padding-left: 5%; padding-right: 5%"> 
+                   <div class="gift_description">{{ i.name|truncatechars:50 }}</div>
+
+                </div>
+                {% endfor %}
+            {% endblock %}
+        </div>
+        <div class="shoppingcart" style="display: none;">
+            <ul class="itemlist">
+              <!--<li class="selectedgift"><div class="cartdescription">Disney Pixar Coco Guitar</div><div class="cartquantity">1</div></li>
+              <li class="selectedgift"><div class="cartdescription">Yamaha F200 Acoustic Guitar</div><div class="cartquantity">1</div></li>-->
+            </ul>
+            <div class="checkoutbutton" style="left: 40%"><button type="button" class="btn btn-success">Checkout <span class="glyphicon glyphicon-search"></span></button></div>
+
+        </div>
+        <div class="pagination">
+            <ul class="pagination">
+              <li class="page-item disabled">
+                <a class="page-link" href="#">&laquo;</a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">2</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">3</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">4</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">5</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">&raquo;</a>
+              </li>
+            </ul>
+        </div>
+        <div class="apilink">
+          {% if bodycontext %}
+          {{ bodycontext }}
+          {% endif %}
+          <a href="/search">Open AZ API search</a>
+        </div>
+    </div>
+    <div class="footer table-primary"></div>
+{% block javascript %}
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script>
+      function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+
+      $(document).ready(function(){
+          var csrftoken = getCookie('csrftoken');
+          var shoppingcart = [];
+
+          $.ajaxSetup({
+              beforeSend: function(xhr, settings) {
+                  if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                  }
+              }
+          });
+
+          $(".gift").hover(function(){
+              $(this).children('.hover').show();
+          },function(){
+              $(this).children('.hover').hide();
+          });
+
+          $( ".hover" ).click(function() {
+              var text = $(this).parent().children('.gift_description').text()
+              var data = {};
+              data['text'] = text;
+              shoppingcart.push($(this).parent().attr('id'));
+              var toappend = '<li class="selectedgift"><div class="cartdescription">' + text + '</div><div class="cartquantity">1</div></li>';
+              $(".itemlist").append(toappend);
+              $('.shoppingcart').show();
+              $.ajax({
+                  type: 'POST',
+                  url: '/modifycart/',
+                  data: shoppingcart,
+                  success: function (data) {
+                    console.log(data);
+                  }
+              });
+          });
+
+          $(".checkoutbutton").click(function() {
+              console.log(shoppingcart);
+              $.ajax({
+                  type: 'POST',
+                  url: '/checkout/',
+                  data: {'shoppingcart': JSON.stringify(shoppingcart)},
+                  success: function (data) {
+                    $('.checkoutbutton').css({'left': '20%'});
+                    $('.checkoutbutton').append('<a href="' + data['msg'] + '" target="_blank"' + '>Cart!</a>');
+                    console.log(data)
+                    //var win = window.open(data);
+                  }
+              });
+          });
+      }); 
+    </script>
+{% endblock %}
+</body>
+</html>

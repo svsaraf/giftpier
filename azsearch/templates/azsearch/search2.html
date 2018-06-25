@@ -1,0 +1,24 @@
+{% extends "azsearch/base.html" %}
+
+{% block title %}Search Page{% endblock %}
+
+{% block collagecontent %}
+<form action="/search2/" method="post">
+    {% csrf_token %}
+    <input type='text' name="searchbox" placeholder="{% if search %}{{ search }}{% else %}Search here{% endif %}"><br>
+    <input type="radio" name="saved_or_not" value="unsaved" checked> Unsaved
+    <input type="radio" name="saved_or_not" value="saved"> Saved<br>
+    <input type="submit">
+</form>
+    {% for i in products %}
+    <div class="gift" id="{{ i.asin }}">
+      <div class="hover" style="display: none;">
+        <button type="button" class="btn btn-primary">+</button>
+      </div>
+       <img src="{{ i.large_image_url }}" alt="" width="100%" height="80%" style="padding-left: 5%; padding-right: 5%"> 
+       <div class="gift_description">{{ i.title|truncatechars:50 }}</div>
+
+    </div>
+    {% endfor %}
+{% endblock %}
+

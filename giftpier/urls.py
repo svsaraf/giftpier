@@ -21,6 +21,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^search/', azsearch_views.search, name='search'),
+    url(r'^search2/', azsearch_views.search2, name='search2'),
     url(r'^modifycart/', azsearch_views.modifycart, name='modifycart'),
     url(r'^checkout/', azsearch_views.checkout, name='checkout'),
     url(r'^$', azsearch_views.home, name='home'),
